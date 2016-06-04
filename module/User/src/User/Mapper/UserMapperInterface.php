@@ -3,11 +3,10 @@
 	
 	use User\Model\UserInterface;
 	
-	public function find($id){
+	interface UserMapperInterface{
 		
-	}
-	
-	public function findAll(){
-		
+		public function find($id);
+		public function findAll();
+		public function save(userInterface $userObject);
 	}
 ?>

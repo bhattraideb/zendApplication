@@ -1,0 +1,25 @@
+<?php
+$title = 'User Detail';
+$this->headTitle($title);
+$i = 1;
+?>
+<h1><?php echo $this->escapeHtml($title); ?> </h1>
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Contact Number</th>
+		<th>E-mail Id</th>
+		<th>Designation</th>
+		<th>Profile Image</th>
+		
+	</tr>
+	<tr>
+		<td><?php echo $this->escapeHtml($this->user->getName()); ?> </td>
+		<td><?php echo $this->escapeHtml($this->user->getContact());?></td>
+		<td><?php echo $this->escapeHtml($this->user->getEmail()); ?> </td>
+		<td><?php echo $this->escapeHtml($this->user->getDesignation());?></td>
+		<td><?php echo $this->escapeHtml($this->user->getProfilePic());?></td>
+		<!--td><a href = "<?php //echo $this->url('user', array('action' => 'edit', 'id' => $user->getId() )); ?>">Edit</a></td>
+		<td><a href = "<?php //echo $this->url('user', array('action' => 'delete', 'id' => $user->getId() )); ?>">Delete</a></td-->
+	</tr>
+</table>
