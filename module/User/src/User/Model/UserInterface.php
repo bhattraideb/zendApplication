@@ -9,9 +9,6 @@ namespace User\Model;
 		public function getEmail();
 		public function getDesignation();
 		public function getProfilePic();
-		public function getText();
-		
-		//public function getDetails();
-		//public function getTitle();
+		//public function getDescription();
 	}
 ?>
