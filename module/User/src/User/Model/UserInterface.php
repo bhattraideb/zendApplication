@@ -4,11 +4,14 @@ namespace User\Model;
 	interface UserInterface{
 		
 		public function getId();
-		public function getName();
-		public function getContact();
+		public function getFirst_name();
+		public function getLast_name();
+		public function getContact_num();
 		public function getEmail();
 		public function getDesignation();
-		public function getProfilePic();
-		//public function getDescription();
+		public function getProfile_pic();
+		public function getUser_name();
+		public function getPassword();
+		public function getDescription();
 	}
 ?>

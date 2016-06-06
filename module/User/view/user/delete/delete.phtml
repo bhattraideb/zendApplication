@@ -1,0 +1,11 @@
+<?php
+$title = 'Delete User';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?> </h1>
+<p>Are you sure want to delete '<?php echo $this->escapeHtml($user->getFirst_name()).' '.$this->escapeHtml($user->getLast_name()); ?>'</p>
+
+<form action="<?php echo $this->url('user/delete', array('id' => $user->getId())); ?>" method="post">
+	<input type="submit" value="Yes" name="delete_confirmation">
+	<input type="submit" value="No" name="delete_confirmation">
+</form>

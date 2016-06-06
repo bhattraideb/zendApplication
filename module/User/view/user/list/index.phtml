@@ -5,16 +5,18 @@ $i = 1;
 ?>
 <h1><?php echo $this->escapeHtml($title); ?> </h1>
 <p>
-	<a href = "<?php echo $this->url('user', array('action' => 'add'));?>">Add New User</a>
+	<a href = "<?php echo $this->url('user/add', array('action' => 'add'));?>">Add New User</a>
 </p>
 
 <table class="table">
 	<tr>
 		<th>#</th>
 		<th>Name</th>
+		<th>User Name</th-->
 		<th>Contact Number</th>
 		<th>E-mail Id</th>
 		<th>Designation</th>
+		<!--th>Description</th-->
 		<th>Profile Image</th>
 		<th>Edit</th>
 		<th>Delete</th>
@@ -25,13 +27,16 @@ $i = 1;
 	?>
 		<tr>
 			<td ><?php echo $i;?></td>
-			<td><?php echo $this->escapeHtml($user->getName()); ?> </td>
-			<td><?php echo $this->escapeHtml($user->getContact());?></td>
+			<td><?php echo $this->escapeHtml($user->getFirst_name()).' '.$this->escapeHtml($user->getLast_name()); ?> </td>
+			<td><?php echo $this->escapeHtml($user->getUser_name()); ?> </td>
+			<td><?php echo $this->escapeHtml($user->getContact_num());?></td>
 			<td><?php echo $this->escapeHtml($user->getEmail()); ?> </td>
 			<td><?php echo $this->escapeHtml($user->getDesignation());?></td>
-			<td><?php echo $this->escapeHtml($user->getProfilePic());?></td>
-			<td><a href = "<?php echo $this->url('user', array('action' => 'edit', 'id' => $user->getId() )); ?>">Edit</a></td>
-			<td><a href = "<?php echo $this->url('user', array('action' => 'delete', 'id' => $user->getId() )); ?>">Delete</a></td>
+			<!--td><?php //echo $this->escapeHtml($user->getDescription());?></td-->
+			<td><?php echo $this->escapeHtml($user->getProfile_pic());?>
+			</td>
+			<td><a href = "<?php echo $this->url('user/edit', array('id' => $user->getId() )); ?>">Edit</a></td>
+			<td><a href = "<?php echo $this->url('user/delete', array('id' => $user->getId() )); ?>">Delete</a></td>
 		</tr>
 	<?php
 	$i++;

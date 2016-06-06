@@ -40,10 +40,13 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album') ?></a></li>
 						<li class=""><a href="<?php echo $this->url('blog') ?>"><?php echo $this->translate('Blog') ?></a></li>
-						<li class=""><a href="<?php //echo $this->url('user') ?>"><?php echo $this->translate('Register Now') ?></a></li>
+						<li class=""><a href="<?php echo $this->url('user') ?>"><?php echo $this->translate('Users') ?></a></li>
 						<!--li class="active"><a href="<?php //echo $this->url('user') ?>"><?php //echo $this->translate('My Profile') ?></a></li-->
                     </ul>
 					<ul class="nav navbar-nav navbar-right"> 
+						<li class=""><a href="<?php echo $this->url('user/add') ?>"><?php echo $this->translate('Sign Up') ?></a></li>
+						<li class=""><a href="<?php echo $this->url('user') ?>"><?php echo $this->translate('Login') ?></a></li>
+						<?php /*
 						<li><a>Welcome Admin</a></li>
 						<li class="dropdown">
 							<a id="user-settings" data-step="4" data-intro="You can Set up settings here" href="#" data-toggle="dropdown" class="dropdown-toggle active">
@@ -61,6 +64,7 @@
 								<li>
 									<a href="http://icm.local/index.php/Login/logout"><!--i class="fa fa-sign-out fa-fw"></i--> Logout</a>
 								</li>
+								*/ ?>
 							</ul>
 							<!-- /.dropdown-user -->
 						</li>

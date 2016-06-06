@@ -9,6 +9,7 @@
 	use Zend\Db\Sql\Sql;
 	use Zend\Db\Sql\Insert;
 	use Zend\Db\Sql\Update;
+	use Zend\Db\Sql\Delete;
 
 	class ZendDbSqlMapper implements UserMapperInterface{
 		protected $dbAdapter;
@@ -59,14 +60,14 @@
 			unset($userData['id']);
 			if($userObject->getId()){
 				$action = new Update('tbl_users');
-				$action->setData($userData);
+				$action->set($userData);
 				$action->where(array('id = ?' => $userObject->getId()));
 			}else{
 				$action = new Insert('tbl_users');
 				$action->values($userData);
 			}
 			$sql = new Sql($this->dbAdapter);
-			$stmt = $sql->prepareStatementForSqlObject($action);
+			$stmt = $sql->prepareStatementForSqlObject($action); //echo'<pre>'; print_r($stmt); die;
 			$result = $stmt->execute();
 			
 			if($result instanceof ResultInterface){
@@ -76,6 +77,15 @@
 				return $userObject;
 			}
 			return new \Exception("Database Error");
+		}
+		
+		public function delete(UserInterface $userObject){
+			$action = new Delete('tbl_users');
+			$action->where(array('id = ?' => $userObject->getId()));
+			$sql = new Sql($this->dbAdapter);
+			$stmt = $sql->prepareStatementForSqlObject($action);
+			$result = $stmt->execute();
+			return (bool)$result->getAffectedRows();
 		}
 	}
 ?>

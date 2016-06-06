@@ -8,5 +8,6 @@
 		public function find($id);
 		public function findAll();
 		public function save(userInterface $userObject);
+		public function delete(UserInterface $userObject);
 	}
 ?>

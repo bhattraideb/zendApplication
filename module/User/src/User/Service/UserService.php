@@ -24,6 +24,10 @@
 			return $this->userMapper->save($user);
 		}
 		
+		public function deleteUser(UserInterface $user){
+			return $this->userMapper->delete($user);
+		}
+		
 	}
 
 ?>

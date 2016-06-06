@@ -34,7 +34,8 @@
 			)*/
 			'factories' => array(
 				'User\Controller\List' => 'User\Factory\ListControllerFactory',
-				'User\Controller\Write' => 'User\Factory\WriteControllerFactory'
+				'User\Controller\Write' => 'User\Factory\WriteControllerFactory',
+				'User\Controller\Delete' => 'User\Factory\DeleteControllerFactory'
 			)
 		),
 		
@@ -72,7 +73,43 @@
 									'action' => 'add'
 								)
 							)
-						)
+						),
+						'edit' => array(
+							'type' => 'segment',
+							'options' => array(
+								'route' => '/edit/:id',
+								'defaults' => array(
+									'controller' => 'User\Controller\Write',
+									'action' => 'edit'
+								),
+								'constraints' => array(
+									'id' => '[1-9]\d*'
+								)
+							)
+						),						
+						'delete' => array(
+							'type' => 'segment',
+							'options' => array(
+								'route' => '/delete/:id',
+								'defaults' => array(
+									'controller' => 'User\Controller\Delete',
+									'action' => 'delete'
+								),
+								'constraints' => array(
+									'id' => '[1-9]\d*'
+								)
+							)
+						),
+						'login' => array(
+							'type' => 'literal',
+							'options' => array(
+								'route' => '/login/:id',
+								'defaults' => array(
+									'controller' => 'User\Controller\Login',
+									'action' => 'login'
+								)
+							)
+						),
 					)			
 				)
 			)
