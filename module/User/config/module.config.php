@@ -14,11 +14,9 @@
 			'factories' => array(				
 				'User\Mapper\UserMapperInterface' => 'User\Factory\ZendDbSqlMapperFactory',
 				'User\Service\UserServiceInterface' => 'User\Factory\UserServiceFactory',
-				'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory'
-				
-				/*'User\Mapper\UserMapperInterface' => 'User\Factory\ZendDbSqlMapperFactory',
-				'User\Service\UserServiceInterface' => 'User\Service\Factory\UserServiceFactory',
-				'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory'*/
+				'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+				//'Zend\Authentication\Authentication' => 'Zend\Authentication\AuthenticationServiceFactory'
+				//'Zend\Authentication\Adapter\AbstractAdapter' => 'Zend\Authentication\AuthenticationServiceInterface',
 			)
 		),
 		
@@ -30,12 +28,14 @@
 		
 		'controllers' => array(
 			/*'invokables' => array(			//constructed without any arguments
-				'User\Controller\List' => 'User\Controller\ListController',
-			)*/
+				//'User\Controller\List' => 'User\Controller\ListController',
+				'User\Controller\Login' => 'User\Controller\AuthController'
+			),*/
 			'factories' => array(
-				'User\Controller\List' => 'User\Factory\ListControllerFactory',
-				'User\Controller\Write' => 'User\Factory\WriteControllerFactory',
-				'User\Controller\Delete' => 'User\Factory\DeleteControllerFactory'
+				'User\Controller\List' 		=> 'User\Factory\ListControllerFactory',
+				'User\Controller\Write' 	=> 'User\Factory\WriteControllerFactory',
+				'User\Controller\Delete' 	=> 'User\Factory\DeleteControllerFactory',
+				'User\Controller\Auth' 	=> 'User\Factory\AuthControllerFactory'
 			)
 		),
 		
@@ -103,9 +103,9 @@
 						'login' => array(
 							'type' => 'literal',
 							'options' => array(
-								'route' => '/login/:id',
+								'route' => '/login',
 								'defaults' => array(
-									'controller' => 'User\Controller\Login',
+									'controller' => 'User\Controller\Auth',
 									'action' => 'login'
 								)
 							)

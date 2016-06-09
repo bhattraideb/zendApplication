@@ -9,5 +9,6 @@
 		public function findAll();
 		public function save(userInterface $userObject);
 		public function delete(UserInterface $userObject);
+		public function authenticate(UserInterface $userObject);
 	}
 ?>

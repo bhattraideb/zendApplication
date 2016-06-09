@@ -21,7 +21,7 @@
 			HydratorInterface $hydrator,
 			UserInterface $userPrototype
 		){
-			$this->dbAdapter = $dbAdapter;
+			$this->dbAdapter = $dbAdapter; 
 			$this->hydrator  = $hydrator;
 			$this->userPrototype = $userPrototype;
 		}
@@ -86,6 +86,22 @@
 			$stmt = $sql->prepareStatementForSqlObject($action);
 			$result = $stmt->execute();
 			return (bool)$result->getAffectedRows();
+		}
+		
+		public function userExists($email, $password = NULL){
+			
+		}
+		
+		public function authenticate(UserInterface $userObject){
+			$sql = new Sql($this->dbAdapter);
+			$select = $sql->select('tbl_users');
+			$select->where(array('id = ?' => $id));
+			$stmt = $sql->prepareStatementForSqlObject($select);
+			$result = $stmt->execute();
+			if($result instanceof ResultInterface && $result->isQueryResult() && $result->getAffectedRows()){
+				return $this->hydrator->hydrate($result->current(), $this->userPrototype);
+			}
+			throw new \InvalidArgumentException("User with given ID:{$id} not found");
 		}
 	}
 ?>

@@ -20,12 +20,20 @@
 			return $this->userMapper->find($id);
 		}
 		
+		public function isUserExists($userId, $password){
+			return $this->userMapper->userExists($userId, $password);
+		}
+		
 		public function saveUser(UserInterface $user){
 			return $this->userMapper->save($user);
 		}
 		
 		public function deleteUser(UserInterface $user){
 			return $this->userMapper->delete($user);
+		}
+		
+		public function authenticateUser(UserInterface $user){
+			return $this->userMapper->authenticate($user);
 		}
 		
 	}

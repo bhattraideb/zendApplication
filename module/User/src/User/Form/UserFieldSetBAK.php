@@ -23,8 +23,7 @@
 					'type' => 'text',
 					'name' => 'first_name',
 					'options' => array(
-						'label' => 'First Name',
-						'id' => 'first_name',
+						'label' => 'First Name'
 					)
 				)
 			);

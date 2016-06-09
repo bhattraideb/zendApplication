@@ -11,5 +11,7 @@
 		public function saveUser(UserInterface $user);
 		
 		public function deleteUser(UserInterface $user);
+		
+		public function authenticateUser(UserInterface $user);
 	}
 ?>
